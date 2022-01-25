@@ -1,0 +1,108 @@
+<meta charset="UTF-8">
+    
+ <body bgcolor="lightgrey">
+    <center>
+   
+
+<h1><u>CODIGO SECRETO</u> </h1>
+
+<h3 >No se permiten mayúsculas Ni signos Ni numeros.</h3>
+<br>
+
+<input type="texto" id="id1" placeholder="Ingrese texto aqui" >
+<br><br>
+
+<button onclick="encriptar_inputs()">Encriptar</button>
+<button onclick="desencriptar_inputs()">Desencriptar</button>
+<br><br>
+
+<input type="texto" id="id2" value="">
+<br><br>
+
+<button onclick="copiar_inputs()" >COPIAR</button>
+<br><br><br><br>
+
+<p><h2><font color="green"><em>Codigo Secreto:¡felicidades por enfrentar este desafio y haberlo concluido con exito!<em></h2></p>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+<p><font color="black"><b><u><h2>Manuel Alejandro Maciel 2022 Corrientes Argentina</h2></u></b></p>
+      
+<script>
+    
+        
+        function encriptar_inputs(){
+            var tf=0;
+            encriptado=""
+                let id1=document.getElementById("id1").value;
+                let str= id1
+                let arr = Array.from(str);
+                for (i=0; i < str.length; i++){
+                    if (arr[i].search(/[^A-Z]+/) === -1){
+                        alert("Solo ingrese minusculas");
+                        var contenido1=document.getElementById("id1");
+                        contenido1.value="";
+                        tf=1
+                        break;
+                    }
+                    if (arr[i].search(/[^0-9]+/) === -1){
+                        alert("No se pueden ingresar numeros");
+                        var contenido1=document.getElementById("id1");
+                        contenido1.value="";
+                        tf=1
+                        break;
+                    }
+                    if (arr[i].search(/[^!@#$%^&*.,:?¡¿/]+/) === -1){
+                        alert("No se pueden ingresar signos");
+                        var contenido1=document.getElementById("id1");
+                        contenido1.value="";
+                        tf=1
+                        break;
+                    }
+                     if (arr[i]=="a"){
+                        encriptado=encriptado+"ai"
+                    }
+                    else if (arr[i]=="e"){
+                        encriptado=encriptado+"enter"
+                    }
+                               else if (arr[i]=="o"){
+                                encriptado=encriptado+"ober"
+                            }
+                            else if (arr[i]=="u"){
+                                encriptado=encriptado+"ufat"
+                            }
+                            else if (arr[i]=="i"){
+                                encriptado=encriptado+"imes"
+                            }
+                            else {
+                                encriptado=encriptado+arr[i]
+                            }
+                    }
+                    if (tf==0){
+                    console.log(encriptado);
+                    var contenido=document.getElementById("id2");
+                    contenido.value=encriptado;
+                    }
+        } 
+
+        function desencriptar_inputs(){
+              let id1=document.getElementById("id1").value;
+              console.log(id1);
+                arr= id1.replaceAll("ai", "a")
+                arr= arr.replaceAll("enter", "e")
+                arr= arr.replaceAll("imes", "i")
+                arr= arr.replaceAll("ufat", "u")
+                arr= arr.replaceAll("ober", "o")
+                var contenido=document.getElementById("id2");
+                    contenido.value=arr;
+        }
+         function copiar_inputs() {
+                var contenido=document.getElementById("id2");
+                contenido.select();
+                var contenido1=document.getElementById("id1");
+                contenido1.value="";
+                contenido1.placeholder="Pegar para desencriptar"
+                document.execCommand("copy");
+                console.log(id2)};     
+         
+</script>
